@@ -6,7 +6,7 @@ const express = require("express"),
 server.use(express.json());
 server.use(helmet());
 server.use(morgan("dev"));
-server.use("/api/cars", require("./routes"));
+server.use("/api", require("./routes"));
 
 server.get("/", (req, res) => {
   let root = {
