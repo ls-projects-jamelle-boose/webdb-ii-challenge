@@ -5,5 +5,8 @@ module.exports = {
     let query = db("cars");
     if (id) return query.where("id", id).first();
     return query;
+  },
+  insert: function(car) {
+    return db("cars").insert(car);
   }
 };
