@@ -1,12 +1,13 @@
 const express = require("express"),
   morgan = require("morgan"),
   helmet = require("helmet"),
+  carRouter = require("./routes"),
   server = express();
 
 server.use(express.json());
 server.use(helmet());
 server.use(morgan("dev"));
-server.use("/api", require("./routes"));
+server.use("/api", carRouter);
 
 server.get("/", (req, res) => {
   let root = {
