@@ -1,16 +1,18 @@
-const db = require('../data/dbConfig');
+const selectTable = require('../data/dbConfig'),
+  db = selectTable('cars');
 
 module.exports = {
   get: function (id) {
-    let query = db('cars');
-    if (id) return query.where('id', id).first();
-    return query;
+    if (id) return db.where('id', id).first();
+    return db;
   },
   insert: function (car) {
-    return db('cars').insert(car);
+    return db.insert(car);
   },
   delete: function (id) {
-    let car = db('cars');
-    return car.where('id', '=', id).del();
+    return db.where('id', '=', id).del();
+  },
+  update: function (id, body) {
+    return db.where('id', '=', id).update(body);
   },
 };
