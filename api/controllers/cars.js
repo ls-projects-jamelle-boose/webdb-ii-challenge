@@ -43,14 +43,33 @@ module.exports = {
     }
   },
 
-  rm: async (req, res, next) => {
+  delete: async (req, res, next) => {
     const { id } = req.params;
     try {
       const carDeleted = await cm.delete(id);
 
-      if (!carDeleted) res.status(404).json({ id });
+      if (!carDeleted) res.status(404).json({ status: `404 Not Found`, id });
       else res.status(200).json({ carDeleted });
     } catch (e) {
+      res.status(501).json({ status: `Not implemented.` });
+    }
+  },
+
+  update: async (req, res, next) => {
+    const id = req.params.id,
+      body = req.body;
+
+    try {
+      const carUpdated = await cm.update(id, body);
+      if (!carUpdated) {
+        res.status(404).json({
+          status: `404 Not Found`,
+          id,
+        });
+      } else {
+        res.status(200).json({ carUpdated });
+      }
+    } catch (error) {
       res.status(501).json({ status: `Not implemented.` });
     }
   },
