@@ -65,3 +65,6 @@ typings/
 
 # request
 request.http
+
+# database
+api/data/car-dealer.db3
