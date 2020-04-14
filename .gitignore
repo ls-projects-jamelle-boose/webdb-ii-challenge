@@ -65,6 +65,9 @@ typings/
 
 # request
 request.http
+<<<<<<< HEAD
 
 # database
 api/data/car-dealer.db3
+=======
+>>>>>>> origin/master
