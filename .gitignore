@@ -61,4 +61,10 @@ typings/
 .DS_Store
 
 # VSCode settings
-.vscode/
+.vscode
+
+# request
+request.http
+
+# database
+api/data/car-dealer.db3
